@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.space {
+    height: 30px;
+    width: 30px;
+    border: 1px solid gray;
+}
