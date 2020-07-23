@@ -29,8 +29,6 @@ function startButton(interface){
         if(Number.isInteger(width) && Number.isInteger(height) && Number.isInteger(mines)
         && width > 0 && height > 0 && mines > 0){
             let myne = new Minefield(width, height, mines)
-            console.log(myne.field)
-            console.log(myne.mines)
         }else{
             alert("The dimensions of the minefield and the number of mines must be non-zero positive integers!")
         }

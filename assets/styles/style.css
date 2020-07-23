@@ -13,3 +13,13 @@
     width: 30px;
     border: 1px solid gray;
 }
+
+.symbol{
+    text-align: center;
+    padding: 5px 0;
+}
+
+.flag{
+    text-align: center;
+    padding: 5px 0;
+}
