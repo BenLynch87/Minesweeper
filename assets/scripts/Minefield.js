@@ -49,6 +49,7 @@ class Minefield {
         for (let i = 0; i < width; i++){
             let newSpace = document.createElement('div')
             newSpace.classList.add('space')
+            newSpace.id = `${row.id},${i}`
             newSpace.addEventListener('click', clickSpace)
             newSpace.addEventListener('contextmenu', e => {e.preventDefault()})
             newSpace.addEventListener('contextmenu', rClickSpace)
@@ -60,6 +61,7 @@ class Minefield {
         for (let i = 0; i < height; i++){
             let newRow = document.createElement('div')
             newRow.classList.add('row')
+            newRow.id = i
             this.fillRows(width, newRow)
             let main = document.querySelector('main')
             main.append(newRow)
@@ -78,5 +80,3 @@ class Minefield {
         }
     }
 }
-
-//'🚩' '💣'

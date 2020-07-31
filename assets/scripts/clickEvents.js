@@ -4,7 +4,9 @@ function clickSpace(e){
     if (flagDiv.classList.value === 'flag'){
         flagDiv.hidden = true
     }
-    symbolDiv.hidden = false
+    if (symbolDiv.innerHTML === ''){
+        flood(e)
+    } else {symbolDiv.hidden = false}
 }
 
 function rClickSpace(e){
@@ -19,4 +21,34 @@ function rClickSpace(e){
         flagDiv.hidden = true
     } else if (flagDiv.classList.value === 'flag' && flagDiv.hidden === true && symbolDiv.hidden === true){
         flagDiv.hidden = false}
+}
+
+function flood(e){
+    let stack = e.currentTarget.id.split(',')
+    let x = +stack.pop()
+    let y = +stack.pop()
+    fill(y, x)
+}
+
+function fill(y, x){
+    const current = document.getElementById(`${y}, ${x}`)
+    if (current !== undefined && current.innerHTML === ''){
+        current.hidden = false
+        document.getElementById(`${y - 1}, ${x}`).hidden = false
+        document.getElementById(`${y + 1}, ${x}`).hidden = false
+        document.getElementById(`${y}, ${x - 1}`).hidden = false
+        document.getElementById(`${y}, ${x + 1}`).hidden = false
+        document.getElementById(`${y - 1}, ${x - 1}`).hidden = false
+        document.getElementById(`${y - 1}, ${x + 1}`).hidden = false
+        document.getElementById(`${y + 1}, ${x - 1}`).hidden = false
+        document.getElementById(`${y + 1}, ${x + 1}`).hidden = false
+        fill(y - 1, x)
+        fill(y + 1, x)
+        fill(y - 1, x - 1)
+        fill(y - 1, x + 1)
+        fill(y, x + 1)
+        fill(y, x - 1)
+        fill(y + 1, x - 1)
+        fill(y + 1, x + 1)
+    }
 }
